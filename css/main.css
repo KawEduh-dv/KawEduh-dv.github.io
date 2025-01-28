@@ -2,15 +2,73 @@
 
 @font-face {
     font-family: "MinecraftTen";
-    /* Nome da fonte que você vai usar no CSS */
     src: url("../fonts/MinecraftTen.otf");
-    /* Caminho para o arquivo da fonte */
     font-weight: normal;
-    /* Peso da fonte (normal, bold, etc.) */
     font-style: normal;
-    /* Estilo da fonte (normal, italic, etc.) */
 }
 
+@font-face {
+    font-family: "MinecraftFive";
+    src: url("../fonts/MinecraftFive.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+select,
+input,
+textarea,
+button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(213, 218, 223);
+}
+
+textarea {
+    height: 100px;
+    background-color: rgb(36, 36, 37);
+    border-bottom: 2px solid rgb(20, 20, 20);
+    border-top: 2px solid rgb(48, 48, 49);
+    color: rgb(240, 239, 233);
+    font-size: 6pt;
+    font-family: "MinecraftFive", Arial, sans-serif;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+h3 {
+    margin-left: 12px;
+    flex-grow: 1;
+    flex-basis: 200;
+    display: block;
+}
+
+label {
+    margin-left: 12px;
+}
+
+/* Estiliza o label para agir como a caixa de seleção */
+input[type="checkbox"] + label {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/assets/check_off.png'); /* Imagem para o estado não marcado */
+    background-size: cover;
+    cursor: pointer;
+}
+
+/* Estilo quando o checkbox está marcado */
+input[type="checkbox"]:checked + label {
+    background-image: url('../img/assets/check_on.png'); /* Imagem para o estado marcado */
+}
 
 .title {
     flex-grow: 1;
@@ -41,14 +99,28 @@
     margin: 20px;
 }
 
+.bg_form {
+    flex-grow: 1;
+    flex-basis: 200;
+    width: 20%;
+    border: 2px solid rgb(22, 22, 22);
+    margin: 20px;
+}
+
+.check {
+    display: block;
+}
+
 .bg {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     background-color: rgb(74, 74, 77);
     border-bottom: 2px solid rgb(47, 47, 48);
     border-top: 2px solid rgb(88, 88, 88);
     color: rgb(240, 239, 233);
     font-size: 10pt;
     font-family: "MinecraftTen", Arial, sans-serif;
-    ;
 }
 
 .bg_dark {
@@ -56,6 +128,17 @@
     border-bottom: 2px solid rgb(20, 20, 20);
     border-top: 2px solid rgb(48, 48, 49);
     color: rgb(240, 239, 233);
+    font-size: 10pt;
+    font-family: "MinecraftTen", Arial, sans-serif;
+}
+
+.bg_white {
+    width: 100%;
+    background-color: rgb(211, 211, 211);
+    border-bottom: 2px solid rgb(121, 121, 121);
+    border-top: 2px solid rgb(226, 226, 226);
+    color: rgb(43, 42, 44);
+    cursor: pointer;
     font-size: 10pt;
     font-family: "MinecraftTen", Arial, sans-serif;
 }
