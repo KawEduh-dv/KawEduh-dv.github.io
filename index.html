@@ -1,55 +1,742 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bedrock Dev</title>
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Bedrock Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #1f2937;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+        }
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+        .language-option {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .language-option:hover {
+            background-color: #374151;
+        }
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        .minecraft-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .minecraft-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .minecraft-button:active {
+            transform: translateY(0);
+        }
+        .minecraft-card {
+            transition: all 0.3s;
+            transform-style: preserve-3d;
+        }
+        .minecraft-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .pixel-border {
+            border-style: solid;
+            border-width: 2px;
+            border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="none" stroke="black" stroke-width="2" stroke-dasharray="2 2"/></svg>') 2;
+        }
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%232d3748"/><rect width="50" height="50" x="50" y="50" fill="%232d3748"/></svg>');
+            background-size: 20px 20px;
+        }
+    </style>
 </head>
-
-<body>
-  <section>
-    <div class="bg_100">
-      <div class="bg">
-        <div>
-          <h1 class="minecraftTen">Ferramentas de auxilio para o minecraft bedrock</h1>
-        </div>
-      </div>
-    </div>
-    <div class="bg_100">
-      <div class="bg">
-        <div class="panel">
-          <div class="bg_23">
-            <div class="bg_dark">
-              <div class="border">
-                <div class="bg_title">
-                  <div class="bg">
-                    <div>
-                      <h1 class="minecraftTen">Ferramentas De Desevolvimento Bedrock</h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="border">
-                <a class="components" href="tools/manifest_generator.html">
-                  <img src="img/assets/tools/manifest.png" alt="">
-                  <h1>Criar Manifest</h1>
-                </a>
-              </div>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Header with Navigation -->
+    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-logo.svg" alt="Minecraft Logo" class="h-10 mr-2">
+                <h1 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</h1>
             </div>
-          </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition" data-i18n="nav.home">Home</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition" data-i18n="nav.portfolio">Portfolio</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition" data-i18n="nav.about">About</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition" data-i18n="nav.services">Services</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition" data-i18n="nav.contact">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="language-selector">
+                    <button class="flex items-center px-3 py-2 rounded-md bg-gray-700 hover:bg-gray-600 transition">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                        <span class="ml-2">EN</span>
+                        <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                    </button>
+                    <div class="language-dropdown mt-2">
+                        <div class="language-option" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" onclick="changeLanguage('pt')">
+                            <img src="https://flagcdn.com/w20/br.png" alt="Portuguese" class="language-flag">
+                            <span>Português</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="bg_100">
-      <div class="bg">
-        <div>
-          <h1 class="minecraftTen">Criado Por KawEduh</h1>
-        </div>
-      </div>
-    </div>
-  </section>
-</body>
+    </header>
 
+    <!-- Mobile Menu -->
+    <div class="md:hidden bg-gray-800 hidden" id="mobileMenu">
+        <div class="px-4 py-2 flex flex-col space-y-3">
+            <a href="#home" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.home">Home</a>
+            <a href="#portfolio" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.portfolio">Portfolio</a>
+            <a href="#about" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.about">About</a>
+            <a href="#services" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.services">Services</a>
+            <a href="#contact" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">Professional <span class="text-green-400">Minecraft Bedrock</span> Creations</h1>
+                <p class="text-xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom maps, add-ons, skins, and texture packs for Minecraft Bedrock Edition</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="minecraft-button px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold transition" data-i18n="hero.view_work">View My Work</a>
+                    <a href="#contact" class="minecraft-button px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition" data-i18n="hero.contact">Contact Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-creeper-face.png" alt="Minecraft Creeper" class="w-64 h-64 md:w-80 md:h-80 object-contain animate-pulse">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="portfolio.title">My Marketplace Creations</h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">Check out some of my featured work available on Minecraft Marketplace</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
+                    <div class="h-48 bg-green-900 flex items-center justify-center">
+                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-1.png" alt="Adventure Map" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item1.title">Epic Adventure Map</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item1.description">A complete story-driven adventure with custom structures, NPCs, and quests.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-400 font-bold">5000+ Downloads</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
+                    <div class="h-48 bg-blue-900 flex items-center justify-center">
+                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-2.png" alt="Texture Pack" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item2.title">Fantasy Texture Pack</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item2.description">Complete visual overhaul with medieval fantasy themed textures and models.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-400 font-bold">8000+ Downloads</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
+                    <div class="h-48 bg-purple-900 flex items-center justify-center">
+                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-3.png" alt="Add-on" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item3.title">Magic System Add-on</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item3.description">Introduces a complete magic system with spells, wands, and magical creatures.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-400 font-bold">12000+ Downloads</span>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="minecraft-button inline-block px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition" data-i18n="portfolio.view_all">View All Creations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative">
+                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-character.png" alt="Minecraft Character" class="w-64 h-64 rounded-full border-4 border-green-500 object-cover">
+                        <div class="absolute -bottom-3 -right-3 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-code text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6" data-i18n="about.title">About Me</h2>
+                    <p class="text-gray-300 mb-6" data-i18n="about.description1">
+                        I'm a passionate Minecraft Bedrock Edition developer with over 5 years of experience creating high-quality content for the Minecraft Marketplace. My expertise includes custom maps, behavior packs, resource packs, and skin packs.
+                    </p>
+                    <p class="text-gray-300 mb-8" data-i18n="about.description2">
+                        I specialize in creating immersive experiences that push the boundaries of what's possible in Minecraft Bedrock Edition. My creations have been downloaded by thousands of players worldwide and featured in the official Minecraft Marketplace.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-green-400 text-3xl mb-2">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.maps">Adventure Maps</h3>
+                            <p class="text-gray-300">25+ Created</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-blue-400 text-3xl mb-2">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.textures">Texture Packs</h3>
+                            <p class="text-gray-300">15+ Created</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-purple-400 text-3xl mb-2">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.addons">Add-ons</h3>
+                            <p class="text-gray-300">30+ Created</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="services.title">My Services</h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="services.subtitle">Custom development services for Minecraft Bedrock Edition</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
+                    <div class="text-green-400 text-4xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item1.title">Custom Adventure Maps</h3>
+                    <p class="text-gray-300 mb-4" data-i18n="services.item1.description">
+                        Fully customized adventure maps with unique storylines, quests, NPCs, and custom structures.
+                    </p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span data-i18n="services.item1.feature1">Story-driven gameplay</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span data-i18n="services.item1.feature2">Custom NPCs and dialogue</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span data-i18n="services.item1.feature3">Unique structures and terrain</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-green-400 hover:text-green-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item2.title">Behavior Packs & Add-ons</h3>
+                    <p class="text-gray-300 mb-4" data-i18n="services.item2.description">
+                        Custom mobs, items, blocks, and game mechanics to enhance your Minecraft experience.
+                    </p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                            <span data-i18n="services.item2.feature1">Custom mobs with unique AI</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                            <span data-i18n="services.item2.feature2">New items and crafting systems</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                            <span data-i18n="services.item2.feature3">Game mechanic modifications</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-blue-400 hover:text-blue-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
+                    <div class="text-purple-400 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item3.title">Resource Packs & Skins</h3>
+                    <p class="text-gray-300 mb-4" data-i18n="services.item3.description">
+                        Custom textures, models, and skins to completely transform the look of your Minecraft world.
+                    </p>
+                    <ul class="text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <span data-i18n="services.item3.feature1">Complete texture overhauls</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <span data-i18n="services.item3.feature2">Custom 3D models</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <span data-i18n="services.item3.feature3">Character skin designs</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-purple-400 hover:text-purple-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="testimonials.title">What Clients Say</h2>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="testimonials.subtitle">Feedback from satisfied customers and collaborators</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item1.quote">
+                        "The adventure map created was beyond my expectations. The attention to detail and the engaging storyline kept my players hooked for weeks!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Alex Johnson</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item1.role">Server Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item2.quote">
+                        "The custom mob add-on brought our server to life. The unique behaviors and animations made our world feel truly magical and unique."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Williams</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item2.role">Community Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item3.quote">
+                        "The texture pack perfectly captured the medieval fantasy aesthetic we wanted. The custom models for weapons and armor were particularly impressive."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item3.role">Content Creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4" data-i18n="contact.title">Get In Touch</h2>
+                <p class="text-xl text-gray-300 text-center mb-12" data-i18n="contact.subtitle">Have a project in mind? Interested in a custom creation? Contact me!</p>
+                
+                <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-green-900 p-8 text-white">
+                            <h3 class="text-xl font-bold mb-6" data-i18n="contact.details.title">Contact Information</h3>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="text-green-300 mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.details.email">Email</h4>
+                                    <p class="text-gray-300">contact@bedrockdev.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="text-green-300 mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.details.location">Location</h4>
+                                    <p class="text-gray-300">Remote (Worldwide)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="text-green-300 mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.details.availability">Availability</h4>
+                                    <p class="text-gray-300" data-i18n="contact.details.hours">Monday - Friday: 9AM - 5PM</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold mb-4 mt-8" data-i18n="contact.social.title">Follow Me</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fas fa-cube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 p-8">
+                            <form id="contactForm" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-gray-300 mb-2" data-i18n="contact.form.name">Your Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-300 mb-2" data-i18n="contact.form.email">Email Address</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-gray-300 mb-2" data-i18n="contact.form.subject">Subject</label>
+                                    <select id="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                        <option value="" data-i18n="contact.form.select_option">Select an option</option>
+                                        <option value="map" data-i18n="contact.form.option1">Custom Map Inquiry</option>
+                                        <option value="addon" data-i18n="contact.form.option2">Add-on Development</option>
+                                        <option value="texture" data-i18n="contact.form.option3">Texture Pack Request</option>
+                                        <option value="other" data-i18n="contact.form.option4">Other Inquiry</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-gray-300 mb-2" data-i18n="contact.form.message">Your Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="minecraft-button w-full py-3 bg-green-600 hover:bg-green-700 rounded-md font-bold transition" data-i18n="contact.form.submit">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-logo.svg" alt="Minecraft Logo" class="h-8 mr-2">
+                        <span class="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</span>
+                    </div>
+                    <p class="text-gray-400 mt-2" data-i18n="footer.copyright">© 2023 Minecraft Bedrock Developer. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.terms">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Language switching functionality
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.portfolio": "Portfolio",
+                "nav.about": "About",
+                "nav.services": "Services",
+                "nav.contact": "Contact",
+                "hero.title": "Professional <span class='text-green-400'>Minecraft Bedrock</span> Creations",
+                "hero.subtitle": "Custom maps, add-ons, skins, and texture packs for Minecraft Bedrock Edition",
+                "hero.view_work": "View My Work",
+                "hero.contact": "Contact Me",
+                "portfolio.title": "My Marketplace Creations",
+                "portfolio.subtitle": "Check out some of my featured work available on Minecraft Marketplace",
+                "portfolio.item1.title": "Epic Adventure Map",
+                "portfolio.item1.description": "A complete story-driven adventure with custom structures, NPCs, and quests.",
+                "portfolio.item2.title": "Fantasy Texture Pack",
+                "portfolio.item2.description": "Complete visual overhaul with medieval fantasy themed textures and models.",
+                "portfolio.item3.title": "Magic System Add-on",
+                "portfolio.item3.description": "Introduces a complete magic system with spells, wands, and magical creatures.",
+                "portfolio.view_details": "View Details",
+                "portfolio.view_all": "View All Creations",
+                "about.title": "About Me",
+                "about.description1": "I'm a passionate Minecraft Bedrock Edition developer with over 5 years of experience creating high-quality content for the Minecraft Marketplace. My expertise includes custom maps, behavior packs, resource packs, and skin packs.",
+                "about.description2": "I specialize in creating immersive experiences that push the boundaries of what's possible in Minecraft Bedrock Edition. My creations have been downloaded by thousands of players worldwide and featured in the official Minecraft Marketplace.",
+                "about.stats.maps": "Adventure Maps",
+                "about.stats.textures": "Texture Packs",
+                "about.stats.addons": "Add-ons",
+                "services.title": "My Services",
+                "services.subtitle": "Custom development services for Minecraft Bedrock Edition",
+                "services.item1.title": "Custom Adventure Maps",
+                "services.item1.description": "Fully customized adventure maps with unique storylines, quests, NPCs, and custom structures.",
+                "services.item1.feature1": "Story-driven gameplay",
+                "services.item1.feature2": "Custom NPCs and dialogue",
+                "services.item1.feature3": "Unique structures and terrain",
+                "services.item2.title": "Behavior Packs & Add-ons",
+                "services.item2.description": "Custom mobs, items, blocks, and game mechanics to enhance your Minecraft experience.",
+                "services.item2.feature1": "Custom mobs with unique AI",
+                "services.item2.feature2": "New items and crafting systems",
+                "services.item2.feature3": "Game mechanic modifications",
+                "services.item3.title": "Resource Packs & Skins",
+                "services.item3.description": "Custom textures, models, and skins to completely transform the look of your Minecraft world.",
+                "services.item3.feature1": "Complete texture overhauls",
+                "services.item3.feature2": "Custom 3D models",
+                "services.item3.feature3": "Character skin designs",
+                "services.get_quote": "Get a Quote",
+                "testimonials.title": "What Clients Say",
+                "testimonials.subtitle": "Feedback from satisfied customers and collaborators",
+                "testimonials.item1.quote": "\"The adventure map created was beyond my expectations. The attention to detail and the engaging storyline kept my players hooked for weeks!\"",
+                "testimonials.item1.role": "Server Owner",
+                "testimonials.item2.quote": "\"The custom mob add-on brought our server to life. The unique behaviors and animations made our world feel truly magical and unique.\"",
+                "testimonials.item2.role": "Community Manager",
+                "testimonials.item3.quote": "\"The texture pack perfectly captured the medieval fantasy aesthetic we wanted. The custom models for weapons and armor were particularly impressive.\"",
+                "testimonials.item3.role": "Content Creator",
+                "contact.title": "Get In Touch",
+                "contact.subtitle": "Have a project in mind? Interested in a custom creation? Contact me!",
+                "contact.details.title": "Contact Information",
+                "contact.details.email": "Email",
+                "contact.details.location": "Location",
+                "contact.details.availability": "Availability",
+                "contact.details.hours": "Monday - Friday: 9AM - 5PM",
+                "contact.social.title": "Follow Me",
+                "contact.form.name": "Your Name",
+                "contact.form.email": "Email Address",
+                "contact.form.subject": "Subject",
+                "contact.form.select_option": "Select an option",
+                "contact.form.option1": "Custom Map Inquiry",
+                "contact.form.option2": "Add-on Development",
+                "contact.form.option3": "Texture Pack Request",
+                "contact.form.option4": "Other Inquiry",
+                "contact.form.message": "Your Message",
+                "contact.form.submit": "Send Message",
+                "footer.copyright": "© 2023 Minecraft Bedrock Developer. All rights reserved.",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.contact": "Contact"
+            },
+            pt: {
+                "nav.home": "Início",
+                "nav.portfolio": "Portfólio",
+                "nav.about": "Sobre",
+                "nav.services": "Serviços",
+                "nav.contact": "Contato",
+                "hero.title": "Criações Profissionais para <span class='text-green-400'>Minecraft Bedrock</span>",
+                "hero.subtitle": "Mapas personalizados, add-ons, skins e pacotes de textura para Minecraft Bedrock Edition",
+                "hero.view_work": "Ver Meus Trabalhos",
+                "hero.contact": "Entre em Contato",
+                "portfolio.title": "Minhas Criações no Marketplace",
+                "portfolio.subtitle": "Confira alguns dos meus trabalhos em destaque disponíveis no Minecraft Marketplace",
+                "portfolio.item1.title": "Mapa de Aventura Épico",
+                "portfolio.item1.description": "Uma aventura completa com história personalizada, estruturas, NPCs e missões.",
+                "portfolio.item2.title": "Pacote de Textura Fantasia",
+                "portfolio.item2.description": "Reformulação visual completa com texturas e modelos no tema de fantasia medieval.",
+                "portfolio.item3.title": "Add-on de Sistema Mágico",
+                "portfolio.item3.description": "Introduz um sistema mágico completo com feitiços, varinhas e criaturas mágicas.",
+                "portfolio.view_details": "Ver Detalhes",
+                "portfolio.view_all": "Ver Todas as Criações",
+                "about.title": "Sobre Mim",
+                "about.description1": "Sou um desenvolvedor apaixonado por Minecraft Bedrock Edition com mais de 5 anos de experiência criando conteúdo de alta qualidade para o Minecraft Marketplace. Minha expertise inclui mapas personalizados, behavior packs, resource packs e skin packs.",
+                "about.description2": "Especializo-me na criação de experiências imersivas que expandem os limites do que é possível no Minecraft Bedrock Edition. Minhas criações foram baixadas por milhares de jogadores em todo o mundo e destacadas no Minecraft Marketplace oficial.",
+                "about.stats.maps": "Mapas de Aventura",
+                "about.stats.textures": "Pacotes de Textura",
+                "about.stats.addons": "Add-ons",
+                "services.title": "Meus Serviços",
+                "services.subtitle": "Serviços de desenvolvimento personalizado para Minecraft Bedrock Edition",
+                "services.item1.title": "Mapas de Aventura Personalizados",
+                "services.item1.description": "Mapas de aventura totalmente personalizados com histórias únicas, missões, NPCs e estruturas personalizadas.",
+                "services.item1.feature1": "Jogabilidade com narrativa",
+                "services.item1.feature2": "NPCs e diálogos personalizados",
+                "services.item1.feature3": "Estruturas e terrenos únicos",
+                "services.item2.title": "Behavior Packs & Add-ons",
+                "services.item2.description": "Mobs, itens, blocos e mecânicas de jogo personalizados para aprimorar sua experiência no Minecraft.",
+                "services.item2.feature1": "Mobs personalizados com IA única",
+                "services.item2.feature2": "Novos itens e sistemas de crafting",
+                "services.item2.feature3": "Modificações em mecânicas de jogo",
+                "services.item3.title": "Resource Packs & Skins",
+                "services.item3.description": "Texturas, modelos e skins personalizados para transformar completamente a aparência do seu mundo Minecraft.",
+                "services.item3.feature1": "Reformulação completa de texturas",
+                "services.item3.feature2": "Modelos 3D personalizados",
+                "services.item3.feature3": "Designs de skins para personagens",
+                "services.get_quote": "Solicitar Orçamento",
+                "testimonials.title": "O Que os Clientes Dizem",
+                "testimonials.subtitle": "Feedback de clientes e colaboradores satisfeitos",
+                "testimonials.item1.quote": "\"O mapa de aventura criado superou minhas expectativas. A atenção aos detalhes e a história cativante mantiveram meus jogadores engajados por semanas!\"",
+                "testimonials.item1.role": "Dono de Servidor",
+                "testimonials.item2.quote": "\"O add-on de mobs personalizados trouxe vida ao nosso servidor. Os comportamentos e animações únicos fizeram nosso mundo parecer verdadeiramente mágico e especial.\"",
+                "testimonials.item2.role": "Gerente de Comunidade",
+                "testimonials.item3.quote": "\"O pacote de textura capturou perfeitamente a estética de fantasia medieval que queríamos. Os modelos personalizados para armas e armaduras foram particularmente impressionantes.\"",
+                "testimonials.item3.role": "Criador de Conteúdo",
+                "contact.title": "Entre em Contato",
+                "contact.subtitle": "Tem um projeto em mente? Interessado em uma criação personalizada? Fale comigo!",
+                "contact.details.title": "Informações de Contato",
+                "contact.details.email": "E-mail",
+                "contact.details.location": "Localização",
+                "contact.details.availability": "Disponibilidade",
+                "contact.details.hours": "Segunda a Sexta: 9h às 17h",
+                "contact.social.title": "Me Siga",
+                "contact.form.name": "Seu Nome",
+                "contact.form.email": "Endereço de E-mail",
+                "contact.form.subject": "Assunto",
+                "contact.form.select_option": "Selecione uma opção",
+                "contact.form.option1": "Consulta sobre Mapa Personalizado",
+                "contact.form.option2": "Desenvolvimento de Add-on",
+                "contact.form.option3": "Solicitação de Pacote de Textura",
+                "contact.form.option4": "Outra Consulta",
+                "contact.form.message": "Sua Mensagem",
+                "contact.form.submit": "Enviar Mensagem",
+                "footer.copyright": "© 2023 Desenvolvedor Minecraft Bedrock. Todos os direitos reservados.",
+                "footer.privacy": "Política de Privacidade",
+                "footer.terms": "Termos de Serviço",
+                "footer.contact": "Contato"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'OPTION') {
+                        element.value = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update language selector button
+            const button = document.querySelector('.language-selector button');
+            if (lang === 'en') {
+                button.innerHTML = `
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                    <span class="ml-2">EN</span>
+                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                `;
+            } else if (lang === 'pt') {
+                button.innerHTML = `
+                    <img src="https://flagcdn.com/w20/br.png" alt="Portuguese" class="language-flag">
+                    <span class="ml-2">PT</span>
+                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                `;
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
 </html>
