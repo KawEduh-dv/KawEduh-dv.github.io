@@ -1,98 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Bedrock Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main_style.css">
     <style>
-        .language-selector {
-            position: relative;
-            display: inline-block;
-        }
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #1f2937;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 0.5rem;
-        }
-        .language-selector:hover .language-dropdown {
-            display: block;
-        }
-        .language-option {
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .language-option:hover {
-            background-color: #374151;
-        }
-        .language-flag {
-            width: 20px;
-            height: 15px;
-            margin-right: 10px;
-            border-radius: 2px;
-        }
-        .minecraft-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        .minecraft-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .minecraft-button:active {
-            transform: translateY(0);
-        }
-        .minecraft-card {
-            transition: all 0.3s;
-            transform-style: preserve-3d;
-        }
-        .minecraft-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        .pixel-border {
-            border-style: solid;
-            border-width: 2px;
-            border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="none" stroke="black" stroke-width="2" stroke-dasharray="2 2"/></svg>') 2;
-        }
-        .hero-pattern {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%232d3748"/><rect width="50" height="50" x="50" y="50" fill="%232d3748"/></svg>');
-            background-size: 20px 20px;
-        }
-        .blockbench-icon {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFAC33"><path d="M12 2L1 7l11 5 10-5-10-5zM1 17l11 5 10-5M1 12l11 5 10-5"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
     </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Notification Element -->
+    <div id="notification" class="notification">
+        <div class="notification-icon">
+            <i class="fab fa-discord"></i>
+        </div>
+        <div class="notification-content">
+            <div class="notification-title" data-i18n="notification.title">Discord copiado!</div>
+            <div class="notification-message" data-i18n="notification.message">@kaweduh_dv foi copiado para sua área de
+                transferência</div>
+        </div>
+        <div class="notification-close" onclick="hideNotification()">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="hideModal('privacyModal')">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-title" data-i18n="modal.privacy.title">Política de Privacidade</div>
+            <div class="modal-text" data-i18n="modal.privacy.text">
+                We take your privacy seriously and are committed to protecting your personal information. This Privacy
+                Policy explains in detail what data we collect, how it is used, stored, and under what circumstances it
+                may be shared.
+
+                We only collect the personal information strictly necessary for the delivery of our services. This data
+                may include, but is not limited to, your name, email address, IP address, and browsing information.
+
+                We do not sell, rent, or share your personal information with third parties, except when it is essential
+                for the operation of our services (such as hosting providers or payment platforms) or when required by
+                legal or judicial obligations.
+
+                All data is stored using strict security standards and is protected against unauthorized access, use, or
+                disclosure. We employ appropriate technical and administrative measures to ensure the integrity and
+                confidentiality of your information.
+
+                If you have any questions or wish to request the deletion or review of your data, please contact us
+                through the available support channels.
+            </div>
+            <div class="modal-button" onclick="hideModal('privacyModal')" data-i18n="modal.close">Fechar</div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="hideModal('termsModal')">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-title" data-i18n="modal.terms.title">Termos de Serviço</div>
+            <div class="modal-text" data-i18n="modal.terms.text">
+                By using our services, you fully agree to these Terms of Service. You are solely responsible for any
+                content you create, post, transmit, or share through our platforms. You may not use our services for
+                illegal purposes, offensive behavior, or actions that infringe upon the rights of others. We reserve the
+                right to modify, suspend, or discontinue any part of the services at any time, with or without prior
+                notice. We shall not be held liable for any indirect, incidental, special, or consequential damages
+                arising from the use or inability to use our services. By continuing to use our services, you
+                acknowledge and accept the terms outlined herein.
+            </div>
+            <div class="modal-button" onclick="hideModal('termsModal')" data-i18n="modal.close">Fechar</div>
+        </div>
+    </div>
+
     <!-- Header with Navigation -->
     <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="img/minecraft_logo.png" alt="Minecraft Logo" class="h-10 mr-2">
-                <h1 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</h1>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                    Bedrock Developer</h1>
             </div>
-            
+
             <nav class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-300 hover:text-white transition" data-i18n="nav.home">Home</a>
-                <a href="#portfolio" class="text-gray-300 hover:text-white transition" data-i18n="nav.portfolio">Portfolio</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition"
+                    data-i18n="nav.portfolio">Portfolio</a>
                 <a href="#about" class="text-gray-300 hover:text-white transition" data-i18n="nav.about">About</a>
-                <a href="#services" class="text-gray-300 hover:text-white transition" data-i18n="nav.services">Services</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition"
+                    data-i18n="nav.services">Services</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition" data-i18n="nav.contact">Contact</a>
             </nav>
-            
+
             <div class="flex items-center space-x-4">
                 <div class="language-selector">
                     <button class="flex items-center px-3 py-2 rounded-md bg-gray-700 hover:bg-gray-600 transition">
@@ -111,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="md:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -123,26 +127,41 @@
     <div class="md:hidden bg-gray-800 hidden" id="mobileMenu">
         <div class="px-4 py-2 flex flex-col space-y-3">
             <a href="#home" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.home">Home</a>
-            <a href="#portfolio" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.portfolio">Portfolio</a>
+            <a href="#portfolio" class="text-gray-300 hover:text-white transition py-2"
+                data-i18n="nav.portfolio">Portfolio</a>
             <a href="#about" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.about">About</a>
-            <a href="#services" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.services">Services</a>
-            <a href="#contact" class="text-gray-300 hover:text-white transition py-2" data-i18n="nav.contact">Contact</a>
+            <a href="#services" class="text-gray-300 hover:text-white transition py-2"
+                data-i18n="nav.services">Services</a>
+            <a href="#contact" class="text-gray-300 hover:text-white transition py-2"
+                data-i18n="nav.contact">Contact</a>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-pattern py-20">
+    <section id="home" class="hero-solid py-20">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">Expert <span class="text-green-400">Minecraft Bedrock</span> Add-ons</h1>
-                <p class="text-xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom add-ons, skin packs, and BlockBench models for Minecraft Bedrock Edition</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">Expert <span
+                        class="text-green-400">Minecraft Bedrock</span> Add-ons</h1>
+                <p class="text-xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom add-ons, skin packs, and
+                    BlockBench models for Minecraft Bedrock Edition</p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#portfolio" class="minecraft-button px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold transition" data-i18n="hero.view_work">View My Work</a>
-                    <a href="#contact" class="minecraft-button px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition" data-i18n="hero.contact">Contact Me</a>
+                    <a href="#portfolio"
+                        class="minecraft-button px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold transition"
+                        data-i18n="hero.view_work">View My Work</a>
+                    <a href="#contact"
+                        class="minecraft-button px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition"
+                        data-i18n="hero.contact">Contact Me</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="img/blockbench_model.png" alt="BlockBench Model" class="w-64 h-64 md:w-80 md:h-80 object-contain">
+                <div class="relative">
+                    <img src="img/creeper.png" alt="Minecraft creeper" class="w-full max-w-md block-float">
+                    <img src="img/minecraft_block.png" alt="Minecraft block"
+                        class="absolute -top-10 -left-10 w-20 block-float delay-1">
+                    <img src="img/minecraft_diamond.png" alt="Minecraft diamond"
+                        class="absolute -bottom-10 -right-10 w-16 block-float delay-2">
+                </div>
             </div>
         </div>
     </section>
@@ -151,8 +170,9 @@
     <section id="portfolio" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4" data-i18n="portfolio.title">My Marketplace Creations</h2>
-            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">Check out some of my featured add-ons and skin packs available on Minecraft Marketplace</p>
-            
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">Check
+                out some of my featured add-ons and skin packs available on Minecraft Marketplace</p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Portfolio Item 1 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
@@ -161,14 +181,17 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item1.title">CameraPlus ADD-ON</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item1.description">Add-on made to help in recording scenes with dynamic cameras that follow mobs or scenes with keyframes!</p>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item1.description">Add-on made to help in
+                            recording scenes with dynamic cameras that follow mobs or scenes with keyframes!</p>
                         <div class="flex justify-between items-center">
                             <span class="text-green-400 font-bold">11000+ Downloads</span>
-                            <a href="https://mcpedl.com/cameraplus/" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                            <a href="https://mcpedl.com/cameraplus/"
+                                class="text-blue-400 hover:text-blue-300 transition"
+                                data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Portfolio Item 2 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
                     <div class="h-48 bg-blue-900 flex items-center justify-center">
@@ -176,32 +199,41 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item2.title">XP Die ADD-ON</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item2.description">In this add-on you will have the very common vanilla game, but with a difference where if the player collects any XP he will die, will you be able to kill the ender dragon with this challenge? </p>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item2.description">In this add-on you will
+                            have the very common vanilla game, but with a difference where if the player collects any XP
+                            he will die, will you be able to kill the ender dragon with this challenge? </p>
                         <div class="flex justify-between items-center">
                             <span class="text-green-400 font-bold">4000+ Downloads</span>
-                            <a href="https://mcpedl.com/xp-die-addon/" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                            <a href="https://mcpedl.com/xp-die-addon/"
+                                class="text-blue-400 hover:text-blue-300 transition"
+                                data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Portfolio Item 3 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
                     <div class="h-48 bg-purple-900 flex items-center justify-center">
                         <img src="img/Secret Items.png" alt="BlockBench Models" class="h-full w-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item3.title">'Secret Items' Catalogy</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item3.description">Add to your inventory a catalog of 'secret items' by bringing them into your inventory easily!!</p>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item3.title">'Secret Items' Catalogy
+                        </h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item3.description">Add to your inventory a
+                            catalog of 'secret items' by bringing them into your inventory easily!!</p>
                         <div class="flex justify-between items-center">
                             <span class="text-green-400 font-bold">3000+ Downloads</span>
-                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                            <a href="#" class="text-blue-400 hover:text-blue-300 transition"
+                                data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
-                <a href="https://mcpedl.com/user/kaweduh/" class="minecraft-button inline-block px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition" data-i18n="portfolio.view_all">View All Creations</a>
+                <a href="https://mcpedl.com/user/kaweduh/"
+                    class="minecraft-button inline-block px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition"
+                    data-i18n="portfolio.view_all">View All Creations</a>
             </div>
         </div>
     </section>
@@ -212,8 +244,10 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
                     <div class="relative">
-                        <img src="img/minecraft_chacter.png" alt="Minecraft Character" class="w-64 h-64 rounded-full border-4 border-green-500 object-cover">
-                        <div class="absolute -bottom-3 -right-3 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center">
+                        <img src="img/minecraft_chacter.png" alt="Minecraft Character"
+                            class="w-64 h-64 rounded-full border-4 border-green-500 object-cover">
+                        <div
+                            class="absolute -bottom-3 -right-3 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center">
                             <i class="fas fa-cube text-2xl"></i>
                         </div>
                     </div>
@@ -221,12 +255,16 @@
                 <div class="md:w-2/3 md:pl-12">
                     <h2 class="text-3xl font-bold mb-6" data-i18n="about.title">About Me</h2>
                     <p class="text-gray-300 mb-6" data-i18n="about.description1">
-                        I'm a specialized Minecraft Bedrock Edition developer with expertise in creating custom add-ons, skin packs, and 3D models using BlockBench. With over 5 years of experience, I've developed content that has been featured in the official Minecraft Marketplace.
+                        I'm a specialized Minecraft Bedrock Edition developer with expertise in creating custom add-ons,
+                        skin packs, and 3D models using BlockBench. With over 5 years of experience, I've developed
+                        content that has been featured in the official Minecraft Marketplace.
                     </p>
                     <p class="text-gray-300 mb-8" data-i18n="about.description2">
-                        My focus is on creating high-quality custom mobs, items, and skins that enhance the Minecraft experience. I'm proficient in behavior packs, resource packs, and creating optimized models that work perfectly in Minecraft Bedrock Edition.
+                        My focus is on creating high-quality custom mobs, items, and skins that enhance the Minecraft
+                        experience. I'm proficient in behavior packs, resource packs, and creating optimized models that
+                        work perfectly in Minecraft Bedrock Edition.
                     </p>
-                    
+
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div class="bg-gray-800 p-4 rounded-lg">
                             <div class="text-green-400 text-3xl mb-2">
@@ -259,8 +297,9 @@
     <section id="services" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4" data-i18n="services.title">My Services</h2>
-            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="services.subtitle">Custom development services for Minecraft Bedrock Edition</p>
-            
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="services.subtitle">Custom
+                development services for Minecraft Bedrock Edition</p>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
@@ -285,9 +324,10 @@
                             <span data-i18n="services.item1.feature3">Game mechanic modifications</span>
                         </li>
                     </ul>
-                    <a href="#contact" class="text-green-400 hover:text-green-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                    <a href="#contact" class="text-green-400 hover:text-green-300 font-bold transition"
+                        data-i18n="services.get_quote">Get a Quote</a>
                 </div>
-                
+
                 <!-- Service 2 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
                     <div class="text-blue-400 text-4xl mb-4">
@@ -311,9 +351,10 @@
                             <span data-i18n="services.item2.feature3">HD skins with unique designs</span>
                         </li>
                     </ul>
-                    <a href="#contact" class="text-blue-400 hover:text-blue-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                    <a href="#contact" class="text-blue-400 hover:text-blue-300 font-bold transition"
+                        data-i18n="services.get_quote">Get a Quote</a>
                 </div>
-                
+
                 <!-- Service 3 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
                     <div class="text-purple-400 text-4xl mb-4">
@@ -337,7 +378,8 @@
                             <span data-i18n="services.item3.feature3">Optimized for Bedrock Edition</span>
                         </li>
                     </ul>
-                    <a href="#contact" class="text-purple-400 hover:text-purple-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
+                    <a href="#contact" class="text-purple-400 hover:text-purple-300 font-bold transition"
+                        data-i18n="services.get_quote">Get a Quote</a>
                 </div>
             </div>
         </div>
@@ -347,8 +389,9 @@
     <section class="py-20 bg-gray-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4" data-i18n="testimonials.title">What Clients Say</h2>
-            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="testimonials.subtitle">Feedback from satisfied customers and collaborators</p>
-            
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="testimonials.subtitle">
+                Feedback from satisfied customers and collaborators</p>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
                 <div class="bg-gray-800 p-8 rounded-lg">
@@ -362,17 +405,20 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item1.quote">
-                        "A very dedicated person, he always focused on projects and when he didn't understand something, he sought to learn. This in addition to the constant evolution and improvement of his own skills."
+                        "A very dedicated person, he always focused on projects and when he didn't understand something,
+                        he sought to learn. This in addition to the constant evolution and improvement of his own
+                        skills."
                     </p>
                     <div class="flex items-center">
                         <img src="img/downpixel.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold">DownPixel Studios</h4>
-                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item1.role">Developer marketplace Studio</p>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item1.role">Developer marketplace
+                                Studio</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 2 -->
                 <div class="bg-gray-800 p-8 rounded-lg">
                     <div class="flex items-center mb-4">
@@ -385,7 +431,8 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item2.quote">
-                        "The skin pack was exactly what we wanted. The attention to detail and unique designs made our server stand out from the competition."
+                        "The skin pack was exactly what we wanted. The attention to detail and unique designs made our
+                        server stand out from the competition."
                     </p>
                     <div class="flex items-center">
                         <img src="img/client2.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
@@ -395,7 +442,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 3 -->
                 <div class="bg-gray-800 p-8 rounded-lg">
                     <div class="flex items-center mb-4">
@@ -408,7 +455,8 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item3.quote">
-                        "The BlockBench models were perfectly optimized for Bedrock Edition and worked flawlessly in our add-on. Will definitely work with them again!"
+                        "The BlockBench models were perfectly optimized for Bedrock Edition and worked flawlessly in our
+                        add-on. Will definitely work with them again!"
                     </p>
                     <div class="flex items-center">
                         <img src="img/client3.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
@@ -427,13 +475,15 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-4" data-i18n="contact.title">Get In Touch</h2>
-                <p class="text-xl text-gray-300 text-center mb-12" data-i18n="contact.subtitle">Have a project in mind? Interested in custom add-ons or models? Contact me!</p>
-                
+                <p class="text-xl text-gray-300 text-center mb-12" data-i18n="contact.subtitle">Have a project in mind?
+                    Interested in custom add-ons or models? Contact me!</p>
+
                 <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden">
                     <div class="md:flex">
                         <div class="md:w-1/2 bg-green-900 p-8 text-white">
-                            <h3 class="text-xl font-bold mb-6" data-i18n="contact.details.title">Contact Information</h3>
-                            
+                            <h3 class="text-xl font-bold mb-6" data-i18n="contact.details.title">Contact Information
+                            </h3>
+
                             <div class="flex items-start mb-6">
                                 <div class="text-green-300 mr-4 mt-1">
                                     <i class="fas fa-envelope"></i>
@@ -443,82 +493,106 @@
                                     <p class="text-gray-300">kawaeduardo22@gmail.com</p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start mb-6">
                                 <div class="text-green-300 mr-4 mt-1">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-bold mb-1" data-i18n="contact.details.location">Location</h4>
-                                    <p class="text-gray-300">Remote (Worldwide)</p>
+                                    <p class="text-gray-300" data-i18n="contact.details.remote">Remote (Worldwide)</p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start mb-6">
                                 <div class="text-green-300 mr-4 mt-1">
                                     <i class="fas fa-clock"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold mb-1" data-i18n="contact.details.availability">Availability</h4>
-                                    <p class="text-gray-300" data-i18n="contact.details.hours">Monday - Friday: 9AM - 5PM</p>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.details.availability">Availability
+                                    </h4>
+                                    <p class="text-gray-300" data-i18n="contact.details.hours">Monday - Friday: 9AM -
+                                        5PM</p>
                                 </div>
                             </div>
-                            
+
                             <h3 class="text-xl font-bold mb-4 mt-8" data-i18n="contact.social.title">Follow Me</h3>
                             <div class="flex space-x-4">
-                                <a href="https://github.com/KawEduh-dv" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://github.com/KawEduh-dv"
+                                    class="social-btn github-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a onclick="copyDiscord()"
+                                    class="social-btn discord-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-discord"></i>
                                 </a>
-                                <a href="https://www.youtube.com/@KawEduh" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://www.youtube.com/@KawEduh"
+                                    class="social-btn youtube-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-youtube"></i>
                                 </a>
-                                <a href="https://mcpedl.com/user/kaweduh/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://mcpedl.com/user/kaweduh/"
+                                    class="social-btn mcpedl-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fas fa-cube"></i>
                                 </a>
-                                <a href="https://x.com/Kawedu_mdl" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://x.com/Kawedu_mdl"
+                                    class="social-btn twitter-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="https://www.instagram.com/kwe.photos/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://www.instagram.com/kwe.photos/"
+                                    class="social-btn instagram-btn w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div class="md:w-1/2 p-8">
-                            <form id="contactForm" class="space-y-4">
+                            <form class="form space-y-4" action="https://formsubmit.co/207ccfdecc24b10d6dc840a6cb3e08fe" method="POST">
+                                <!-- Ocultando o captcha e definindo a próxima página -->
+                                <input type="hidden" name="_captcha" value="false" />
+                                <input type="hidden" name="_next" value="html/comissions.html" />
+                                <input type="text" name="_honey" style="display:none" />
+
+                                <!-- Campo Nome -->
                                 <div>
-                                    <label for="name" class="block text-gray-300 mb-2" data-i18n="contact.form.name">Your Name</label>
-                                    <input type="text" id="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                    <label for="name" class="block text-gray-300 mb-2">Nome</label>
+                                    <input type="text" name="name" id="name" required
+                                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white" />
                                 </div>
-                                
+
+                                <!-- Campo E-mail -->
                                 <div>
-                                    <label for="email" class="block text-gray-300 mb-2" data-i18n="contact.form.email">Email Address</label>
-                                    <input type="email" id="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                    <label for="email" class="block text-gray-300 mb-2">E-mail</label>
+                                    <input type="email" name="email" id="email" required
+                                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white" />
                                 </div>
-                                
+
+                                <!-- Campo Texto -->
                                 <div>
-                                    <label for="subject" class="block text-gray-300 mb-2" data-i18n="contact.form.subject">Subject</label>
-                                    <select id="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
-                                        <option value="" data-i18n="contact.form.select_option">Select an option</option>
-                                        <option value="addon" data-i18n="contact.form.option1">Add-on Development</option>
-                                        <option value="skin" data-i18n="contact.form.option2">Skin Pack Request</option>
-                                        <option value="model" data-i18n="contact.form.option3">3D Model Commission</option>
-                                        <option value="other" data-i18n="contact.form.option4">Other Inquiry</option>
+                                    <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                                    <select id="subject" name="subject" required
+                                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                                        <option value="" disabled selected>Select an option</option>
+                                        <option value="Add-on Development">Add-on Development</option>
+                                        <option value="Skin Pack Request">Skin Pack Request</option>
+                                        <option value="3D Model Commission">3D Model Commission</option>
+                                        <option value="Other Inquiry">Other Inquiry</option>
                                     </select>
                                 </div>
-                                
+
+                                <!-- Campo Mensagem -->
                                 <div>
-                                    <label for="message" class="block text-gray-300 mb-2" data-i18n="contact.form.message">Your Message</label>
-                                    <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white"></textarea>
+                                    <label for="message" class="block text-gray-300 mb-2">Mensagem</label>
+                                    <textarea name="message" id="message" required rows="4"
+                                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white"></textarea>
                                 </div>
-                                
-                                <button type="submit" class="minecraft-button w-full py-3 bg-green-600 hover:bg-green-700 rounded-md font-bold transition" data-i18n="contact.form.submit">
-                                    Send Message
+
+                                <!-- Botão de envio -->
+                                <button type="submit"
+                                    class="w-full py-3 bg-green-600 hover:bg-green-700 rounded-md font-bold transition">
+                                    Enviar
                                 </button>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -533,15 +607,23 @@
                 <div class="mb-4 md:mb-0">
                     <div class="flex items-center">
                         <img src="img/minecraft_logo.png" alt="Minecraft Logo" class="h-8 mr-2">
-                        <span class="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</span>
+                        <span
+                            class="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock
+                            Developer</span>
                     </div>
-                    <p class="text-gray-400 mt-2" data-i18n="footer.copyright">© 2025 Minecraft Bedrock Developer. All rights reserved.</p>
+                    <p class="text-gray-400 mt-2" data-i18n="footer.copyright">© 2025 Minecraft Bedrock Developer. All
+                        rights reserved.</p>
                 </div>
-                
+
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.privacy">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.terms">Terms of Service</a>
-                    <a href="#contact" class="text-gray-400 hover:text-white transition" data-i18n="footer.contact">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" onclick="showModal('privacyModal')"
+                        data-i18n="footer.privacy">Privacy
+                        Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" onclick="showModal('termsModal')"
+                        data-i18n="footer.terms">Terms of
+                        Service</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition"
+                        data-i18n="footer.contact">Contact</a>
                 </div>
             </div>
         </div>
@@ -549,10 +631,64 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+        document.querySelector('button.md\\:hidden').addEventListener('click', function () {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         });
+
+        // Notification functions
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                hideNotification();
+            }, 5000);
+        }
+
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+        }
+
+        // Modal functions
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+        }
+
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+        }
+
+        // Copy Discord name with beautiful notification
+        function copyDiscord() {
+            const discordName = '@kaweduh_dv';
+
+            // Create a temporary input element
+            const tempInput = document.createElement('input');
+            tempInput.value = discordName;
+            document.body.appendChild(tempInput);
+
+            // Select and copy the text
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Remove the temporary input
+            document.body.removeChild(tempInput);
+
+            // Show the beautiful notification
+            showNotification();
+
+            // Add animation to the Discord button
+            const discordBtn = document.querySelector('.discord-btn');
+            discordBtn.classList.add('animate-pulse');
+            setTimeout(() => {
+                discordBtn.classList.remove('animate-pulse');
+            }, 1000);
+        }
 
         // Language switching functionality
         const translations = {
@@ -613,6 +749,7 @@
                 "contact.details.title": "Contact Information",
                 "contact.details.email": "Email",
                 "contact.details.location": "Location",
+                "contact.details.remote": "Remote (Worldwide)",
                 "contact.details.availability": "Availability",
                 "contact.details.hours": "Monday - Friday: 9AM - 5PM",
                 "contact.social.title": "Follow Me",
@@ -629,7 +766,14 @@
                 "footer.copyright": "© 2025 Minecraft Bedrock Developer. All rights reserved.",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Service",
-                "footer.contact": "Contact"
+                "footer.contact": "Contact",
+                "notification.title": "Discord copied!",
+                "notification.message": "@kaweduh_dv was copied to your clipboard",
+                "modal.privacy.title": "Privacy Policy",
+                "modal.privacy.text": "We take your privacy seriously and are committed to protecting your personal information. This Privacy Policy explains in detail what data we collect, how it is used, stored, and under what circumstances it may be shared. We only collect the personal information strictly necessary for the delivery of our services. This data may include, but is not limited to, your name, email address, IP address, and browsing information. We do not sell, rent, or share your personal information with third parties, except when it is essential for the operation of our services (such as hosting providers or payment platforms) or when required by legal or judicial obligations. All data is stored using strict security standards and is protected against unauthorized access, use, or disclosure. We employ appropriate technical and administrative measures to ensure the integrity and confidentiality of your information. If you have any questions or wish to request the deletion or review of your data, please contact us through the available support channels.",
+                "modal.terms.title": "Terms of Service",
+                "modal.terms.text": "By using our services, you fully agree to these Terms of Service. You are solely responsible for any content you create, post, transmit, or share through our platforms. You may not use our services for illegal purposes, offensive behavior, or actions that infringe upon the rights of others. We reserve the right to modify, suspend, or discontinue any part of the services at any time, with or without prior notice. We shall not be held liable for any indirect, incidental, special, or consequential damages arising from the use or inability to use our services. By continuing to use our services, you acknowledge and accept the terms outlined herein.",
+                "modal.close": "Close"
             },
             pt: {
                 "nav.home": "Início",
@@ -644,10 +788,10 @@
                 "portfolio.title": "Minhas Criações no Marketplace",
                 "portfolio.subtitle": "Confira alguns dos meus add-ons e pacotes de skins em destaque disponíveis no Minecraft Marketplace",
                 "portfolio.item1.title": "Melhor Camera ADD-ON",
-                "portfolio.item1.description": "Add-on feito para auxiliar na gravação de cena com cameras dinamicas que seguem mobs ou cenas com keyframes!",
+                "portfolio.item1.description": "Add-on feito para auxiliar na gravação de cenas com câmeras dinâmicas que seguem mobs ou cenas com keyframes!",
                 "portfolio.item2.title": "Morte Com XP ADD-ON",
                 "portfolio.item2.description": "Neste addon você terá o jogo vanilla bem comum, mas com uma diferença onde se o jogador coletar XP ele morrerá, você conseguirá matar o dragão ender com esse desafio?",
-                "portfolio.item3.title": "catalogo de 'Itens Secretos'",
+                "portfolio.item3.title": "Catálogo de 'Itens Secretos'",
                 "portfolio.item3.description": "Adicione ao seu inventário um catálogo de 'itens secretos' trazendo-os para seu inventário de maneira fácil!!",
                 "portfolio.view_details": "Ver Detalhes",
                 "portfolio.view_all": "Ver Todas as Criações",
@@ -688,6 +832,7 @@
                 "contact.details.title": "Informações de Contato",
                 "contact.details.email": "E-mail",
                 "contact.details.location": "Localização",
+                "contact.details.remote": "Remoto (Mundialmente)",
                 "contact.details.availability": "Disponibilidade",
                 "contact.details.hours": "Segunda a Sexta: 9h às 17h",
                 "contact.social.title": "Me Siga",
@@ -704,7 +849,14 @@
                 "footer.copyright": "© 2025 Desenvolvedor Minecraft Bedrock. Todos os direitos reservados.",
                 "footer.privacy": "Política de Privacidade",
                 "footer.terms": "Termos de Serviço",
-                "footer.contact": "Contato"
+                "footer.contact": "Contato",
+                "notification.title": "Discord copiado!",
+                "notification.message": "@kaweduh_dv foi copiado para sua área de transferência",
+                "modal.privacy.title": "Política de Privacidade",
+                "modal.privacy.text": "Levamos sua privacidade a sério e estamos comprometidos em proteger suas informações pessoais. Esta Política de Privacidade explica de forma detalhada quais dados coletamos, como eles são utilizados, armazenados e em quais circunstâncias podem ser compartilhados. Coletamos apenas as informações pessoais estritamente necessárias para a prestação de nossos serviços. Esses dados podem incluir, mas não se limitam a, nome, e-mail, endereço IP e informações de navegação. Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando for indispensável para a operação dos nossos serviços (como provedores de hospedagem ou plataformas de pagamento) ou quando exigido por obrigações legais ou judiciais. Todos os dados são armazenados com rigorosos padrões de segurança e protegidos contra acesso, uso ou divulgação não autorizada. Utilizamos medidas técnicas e administrativas adequadas para garantir a integridade e a confidencialidade das informações. Caso tenha dúvidas ou deseje solicitar a exclusão ou revisão dos seus dados, entre em contato conosco através dos canais disponíveis.",
+                "modal.terms.title": "Termos de Serviço",
+                "modal.terms.text": "Ao utilizar nossos serviços, você concorda integralmente com estes Termos de Serviço. Você é o único responsável por qualquer conteúdo que criar, publicar, transmitir ou compartilhar por meio das nossas plataformas. É proibido utilizar nossos serviços para fins ilegais, ofensivos ou que violem direitos de terceiros. Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer parte dos serviços, com ou sem aviso prévio, a qualquer momento. Não nos responsabilizamos por quaisquer danos indiretos, incidentais, especiais ou consequenciais resultantes do uso ou da impossibilidade de uso de nossos serviços. Ao continuar utilizando nossos serviços, você reconhece estar ciente e de acordo com os termos aqui descritos.",
+                "modal.close": "Fechar"
             }
         };
 
@@ -719,30 +871,31 @@
                     }
                 }
             });
-            
+
             // Update language selector button
             const button = document.querySelector('.language-selector button');
             if (lang === 'en') {
                 button.innerHTML = `
-                    <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
-                    <span class="ml-2">EN</span>
-                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                `;
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
+                            <span class="ml-2">EN</span>
+                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        `;
             } else if (lang === 'pt') {
                 button.innerHTML = `
-                    <img src="https://flagcdn.com/w20/br.png" alt="Portuguese" class="language-flag">
-                    <span class="ml-2">PT</span>
-                    <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                `;
+                            <img src="https://flagcdn.com/w20/br.png" alt="Portuguese" class="language-flag">
+                            <span class="ml-2">PT</span>
+                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        `;
             }
         }
 
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
+            // alert('Thank you for your message! I will get back to you soon.');
             this.reset();
         });
     </script>
 </body>
+
 </html>
