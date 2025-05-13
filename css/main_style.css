@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+.language-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #1f2937;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 0.5rem;
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
+}
+
+.language-option {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.language-option:hover {
+    background-color: #374151;
+}
+
+.language-flag {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+/* Block animation for featured items */
+@keyframes blockFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.block-float {
+    animation: blockFloat 3s ease-in-out infinite;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.minecraft-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.minecraft-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.minecraft-button:active {
+    transform: translateY(0);
+}
+
+.minecraft-card {
+    transition: all 0.3s;
+    transform-style: preserve-3d;
+}
+
+.minecraft-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pixel-border {
+    border-style: solid;
+    border-width: 2px;
+    border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="none" stroke="black" stroke-width="2" stroke-dasharray="2 2"/></svg>') 2;
+}
+
+.hero-solid {
+    background-color: #1a202c;
+}
+
+.blockbench-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFAC33"><path d="M12 2L1 7l11 5 10-5-10-5zM1 17l11 5 10-5M1 12l11 5 10-5"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #2d3748;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    border-left: 4px solid #48bb78;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    color: #48bb78;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.notification-message {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.notification-close {
+    margin-left: 15px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+/* Social button animations */
+.social-btn {
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.github-btn:hover {
+    background-color: #1f2225 !important;
+}
+
+.discord-btn:hover {
+    background-color: #4078c0 !important;
+}
+
+.youtube-btn:hover {
+    background-color: #ff0000 !important;
+}
+
+.mcpedl-btn:hover {
+    background-color: #00aa00 !important;
+}
+
+.twitter-btn:hover {
+    background-color: #1da1f2 !important;
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d) !important;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #1f2937;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.modal-text {
+    color: #d1d5db;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.modal-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal-button:hover {
+    background-color: #2563eb;
+}
