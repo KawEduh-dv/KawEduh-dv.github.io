@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Minecraft Bedrock Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/comi_style.css">
+</head>
+
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="../img/minecraft_logo.png" alt="Minecraft Logo" class="h-10 mr-2">
+                <h1 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                    Bedrock Developer</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-solid py-16">
+        <div class="container mx-auto px-4">
+            <div class="thank-you-container">
+                <div class="checkmark-circle">
+                    <i class="fas fa-check checkmark"></i>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-green-400">Obrigado pela sua comissão!</h1>
+                <p class="text-xl text-gray-300 mb-8">Recebemos sua solicitação de comissão com sucesso. Entrarei em contato em breve com os próximos passos e detalhes sobre o seu projeto.</p>
+                
+                <div class="flex justify-center gap-4">
+                    <a href="../index.html#portfolio" class="minecraft-button px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold transition">
+                        Ver Mais Trabalhos
+                    </a>
+                    <a href="https://discord.com/users/kaweduh_dv" class="minecraft-button px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition">
+                        Meu Discord
+                    </a>
+                </div>
+                
+                <div class="next-steps">
+                    <h3 class="text-2xl font-bold mb-6 text-green-400">O que acontece agora?</h3>
+                    
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Análise do seu projeto</h4>
+                            <p class="text-gray-300">Vou revisar os detalhes da sua comissão e verificar todos os requisitos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Contato em 24-48 horas</h4>
+                            <p class="text-gray-300">Entrarei em contato por e-mail ou Discord para discutir prazos, orçamento e detalhes adicionais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Início do desenvolvimento</h4>
+                            <p class="text-gray-300">Após a confirmação, começarei a trabalhar no seu projeto e mantê-lo atualizado sobre o progresso.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="mt-8 text-gray-400">Se tiver alguma dúvida urgente, sinta-se à vontade para me contatar no Discord: <span class="text-green-400">@kaweduh_dv</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Minecraft Items -->
+    <div class="fixed bottom-10 left-10 w-16 block-float">
+        <img src="../img/minecraft_diamond.png" alt="Diamond" class="w-full">
+    </div>
+    
+    <div class="fixed top-20 right-10 w-12 block-float delay-1">
+        <img src="../img/minecraft_block.png" alt="Block" class="w-full">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="../img/minecraft_logo.png" alt="Minecraft Logo" class="h-8 mr-2">
+                <span class="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                    Bedrock Developer</span>
+            </div>
+            <p class="text-gray-400">© 2025 Minecraft Bedrock Developer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efeito de confetti (opcional)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Você pode adicionar uma biblioteca de confetti aqui se quiser
+            // Exemplo: https://www.npmjs.com/package/canvas-confetti
+            
+            // Exemplo simples de confetti (requer a biblioteca canvas-confetti)
+            // if (typeof confetti === 'function') {
+            //     confetti({
+            //         particleCount: 100,
+            //         spread: 70,
+            //         origin: { y: 0.6 }
+            //     });
+            // }
+            
+            // Animação para os elementos flutuantes
+            const floatingElements = document.querySelectorAll('.block-float');
+            floatingElements.forEach(el => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 1s ease-out';
+                    el.style.opacity = '1';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>
