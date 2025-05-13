@@ -68,6 +68,12 @@
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%232d3748"/><rect width="50" height="50" x="50" y="50" fill="%232d3748"/></svg>');
             background-size: 20px 20px;
         }
+        .blockbench-icon {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFAC33"><path d="M12 2L1 7l11 5 10-5-10-5zM1 17l11 5 10-5M1 12l11 5 10-5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
@@ -75,7 +81,7 @@
     <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-logo.svg" alt="Minecraft Logo" class="h-10 mr-2">
+                <img src="img/minecraft_logo.png" alt="Minecraft Logo" class="h-10 mr-2">
                 <h1 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</h1>
             </div>
             
@@ -128,15 +134,15 @@
     <section id="home" class="hero-pattern py-20">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">Professional <span class="text-green-400">Minecraft Bedrock</span> Creations</h1>
-                <p class="text-xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom maps, add-ons, skins, and texture packs for Minecraft Bedrock Edition</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">Expert <span class="text-green-400">Minecraft Bedrock</span> Add-ons</h1>
+                <p class="text-xl text-gray-300 mb-8" data-i18n="hero.subtitle">Custom add-ons, skin packs, and BlockBench models for Minecraft Bedrock Edition</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="#portfolio" class="minecraft-button px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold transition" data-i18n="hero.view_work">View My Work</a>
                     <a href="#contact" class="minecraft-button px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition" data-i18n="hero.contact">Contact Me</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-creeper-face.png" alt="Minecraft Creeper" class="w-64 h-64 md:w-80 md:h-80 object-contain animate-pulse">
+                <img src="img/blockbench_model.png" alt="BlockBench Model" class="w-64 h-64 md:w-80 md:h-80 object-contain">
             </div>
         </div>
     </section>
@@ -145,20 +151,20 @@
     <section id="portfolio" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4" data-i18n="portfolio.title">My Marketplace Creations</h2>
-            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">Check out some of my featured work available on Minecraft Marketplace</p>
+            <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">Check out some of my featured add-ons and skin packs available on Minecraft Marketplace</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Portfolio Item 1 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
                     <div class="h-48 bg-green-900 flex items-center justify-center">
-                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-1.png" alt="Adventure Map" class="h-full w-full object-cover">
+                        <img src="img/cameraplus.png" alt="Custom Mobs Add-on" class="h-full w-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item1.title">Epic Adventure Map</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item1.description">A complete story-driven adventure with custom structures, NPCs, and quests.</p>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item1.title">CameraPlus ADD-ON</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item1.description">Add-on made to help in recording scenes with dynamic cameras that follow mobs or scenes with keyframes!</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-400 font-bold">5000+ Downloads</span>
-                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                            <span class="text-green-400 font-bold">11000+ Downloads</span>
+                            <a href="https://mcpedl.com/cameraplus/" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -166,14 +172,14 @@
                 <!-- Portfolio Item 2 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
                     <div class="h-48 bg-blue-900 flex items-center justify-center">
-                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-2.png" alt="Texture Pack" class="h-full w-full object-cover">
+                        <img src="img/xpdie.png" alt="Skin Pack" class="h-full w-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item2.title">Fantasy Texture Pack</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item2.description">Complete visual overhaul with medieval fantasy themed textures and models.</p>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item2.title">XP Die ADD-ON</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item2.description">In this add-on you will have the very common vanilla game, but with a difference where if the player collects any XP he will die, will you be able to kill the ender dragon with this challenge? </p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-400 font-bold">8000+ Downloads</span>
-                            <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
+                            <span class="text-green-400 font-bold">4000+ Downloads</span>
+                            <a href="https://mcpedl.com/xp-die-addon/" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -181,13 +187,13 @@
                 <!-- Portfolio Item 3 -->
                 <div class="minecraft-card bg-gray-700 rounded-lg overflow-hidden shadow-lg transition">
                     <div class="h-48 bg-purple-900 flex items-center justify-center">
-                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-screenshot-3.png" alt="Add-on" class="h-full w-full object-cover">
+                        <img src="img/Secret Items.png" alt="BlockBench Models" class="h-full w-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item3.title">Magic System Add-on</h3>
-                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item3.description">Introduces a complete magic system with spells, wands, and magical creatures.</p>
+                        <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.item3.title">'Secret Items' Catalogy</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="portfolio.item3.description">Add to your inventory a catalog of 'secret items' by bringing them into your inventory easily!!</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-green-400 font-bold">12000+ Downloads</span>
+                            <span class="text-green-400 font-bold">3000+ Downloads</span>
                             <a href="#" class="text-blue-400 hover:text-blue-300 transition" data-i18n="portfolio.view_details">View Details</a>
                         </div>
                     </div>
@@ -195,7 +201,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="minecraft-button inline-block px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition" data-i18n="portfolio.view_all">View All Creations</a>
+                <a href="https://mcpedl.com/user/kaweduh/" class="minecraft-button inline-block px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-bold transition" data-i18n="portfolio.view_all">View All Creations</a>
             </div>
         </div>
     </section>
@@ -206,42 +212,42 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
                     <div class="relative">
-                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-character.png" alt="Minecraft Character" class="w-64 h-64 rounded-full border-4 border-green-500 object-cover">
+                        <img src="img/minecraft_chacter.png" alt="Minecraft Character" class="w-64 h-64 rounded-full border-4 border-green-500 object-cover">
                         <div class="absolute -bottom-3 -right-3 bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center">
-                            <i class="fas fa-code text-2xl"></i>
+                            <i class="fas fa-cube text-2xl"></i>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12">
                     <h2 class="text-3xl font-bold mb-6" data-i18n="about.title">About Me</h2>
                     <p class="text-gray-300 mb-6" data-i18n="about.description1">
-                        I'm a passionate Minecraft Bedrock Edition developer with over 5 years of experience creating high-quality content for the Minecraft Marketplace. My expertise includes custom maps, behavior packs, resource packs, and skin packs.
+                        I'm a specialized Minecraft Bedrock Edition developer with expertise in creating custom add-ons, skin packs, and 3D models using BlockBench. With over 5 years of experience, I've developed content that has been featured in the official Minecraft Marketplace.
                     </p>
                     <p class="text-gray-300 mb-8" data-i18n="about.description2">
-                        I specialize in creating immersive experiences that push the boundaries of what's possible in Minecraft Bedrock Edition. My creations have been downloaded by thousands of players worldwide and featured in the official Minecraft Marketplace.
+                        My focus is on creating high-quality custom mobs, items, and skins that enhance the Minecraft experience. I'm proficient in behavior packs, resource packs, and creating optimized models that work perfectly in Minecraft Bedrock Edition.
                     </p>
                     
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div class="bg-gray-800 p-4 rounded-lg">
                             <div class="text-green-400 text-3xl mb-2">
-                                <i class="fas fa-map"></i>
+                                <i class="fas fa-dragon"></i>
                             </div>
-                            <h3 class="font-bold mb-1" data-i18n="about.stats.maps">Adventure Maps</h3>
-                            <p class="text-gray-300">25+ Created</p>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-blue-400 text-3xl mb-2">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <h3 class="font-bold mb-1" data-i18n="about.stats.textures">Texture Packs</h3>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.addons">Add-ons</h3>
                             <p class="text-gray-300">15+ Created</p>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-purple-400 text-3xl mb-2">
-                                <i class="fas fa-magic"></i>
+                            <div class="text-blue-400 text-3xl mb-2">
+                                <i class="fas fa-user"></i>
                             </div>
-                            <h3 class="font-bold mb-1" data-i18n="about.stats.addons">Add-ons</h3>
-                            <p class="text-gray-300">30+ Created</p>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.skins">Skin Packs</h3>
+                            <p class="text-gray-300">8 Created</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-purple-400 text-3xl mb-2">
+                                <div class="blockbench-icon w-6 h-6"></div>
+                            </div>
+                            <h3 class="font-bold mb-1" data-i18n="about.stats.models">3D Models</h3>
+                            <p class="text-gray-300">200+ Created</p>
                         </div>
                     </div>
                 </div>
@@ -259,24 +265,24 @@
                 <!-- Service 1 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
                     <div class="text-green-400 text-4xl mb-4">
-                        <i class="fas fa-map-marked-alt"></i>
+                        <i class="fas fa-dragon"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item1.title">Custom Adventure Maps</h3>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item1.title">Custom Add-ons</h3>
                     <p class="text-gray-300 mb-4" data-i18n="services.item1.description">
-                        Fully customized adventure maps with unique storylines, quests, NPCs, and custom structures.
+                        Custom mobs, items, and game mechanics to enhance your Minecraft experience.
                     </p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-green-400 mr-2"></i>
-                            <span data-i18n="services.item1.feature1">Story-driven gameplay</span>
+                            <span data-i18n="services.item1.feature1">Custom mobs with unique AI</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-green-400 mr-2"></i>
-                            <span data-i18n="services.item1.feature2">Custom NPCs and dialogue</span>
+                            <span data-i18n="services.item1.feature2">New items and crafting systems</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-green-400 mr-2"></i>
-                            <span data-i18n="services.item1.feature3">Unique structures and terrain</span>
+                            <span data-i18n="services.item1.feature3">Game mechanic modifications</span>
                         </li>
                     </ul>
                     <a href="#contact" class="text-green-400 hover:text-green-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
@@ -285,24 +291,24 @@
                 <!-- Service 2 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
                     <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-cube"></i>
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item2.title">Behavior Packs & Add-ons</h3>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item2.title">Skin Packs</h3>
                     <p class="text-gray-300 mb-4" data-i18n="services.item2.description">
-                        Custom mobs, items, blocks, and game mechanics to enhance your Minecraft experience.
+                        High-quality custom skins for players, mobs, and entities.
                     </p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-blue-400 mr-2"></i>
-                            <span data-i18n="services.item2.feature1">Custom mobs with unique AI</span>
+                            <span data-i18n="services.item2.feature1">Player skins in any theme</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-blue-400 mr-2"></i>
-                            <span data-i18n="services.item2.feature2">New items and crafting systems</span>
+                            <span data-i18n="services.item2.feature2">Custom mob skins</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-blue-400 mr-2"></i>
-                            <span data-i18n="services.item2.feature3">Game mechanic modifications</span>
+                            <span data-i18n="services.item2.feature3">HD skins with unique designs</span>
                         </li>
                     </ul>
                     <a href="#contact" class="text-blue-400 hover:text-blue-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
@@ -311,24 +317,24 @@
                 <!-- Service 3 -->
                 <div class="minecraft-card bg-gray-700 p-8 rounded-lg transition">
                     <div class="text-purple-400 text-4xl mb-4">
-                        <i class="fas fa-paint-brush"></i>
+                        <div class="blockbench-icon w-8 h-8"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item3.title">Resource Packs & Skins</h3>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.item3.title">BlockBench Models</h3>
                     <p class="text-gray-300 mb-4" data-i18n="services.item3.description">
-                        Custom textures, models, and skins to completely transform the look of your Minecraft world.
+                        Custom 3D models for items, blocks, and entities optimized for Minecraft.
                     </p>
                     <ul class="text-gray-300 space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-purple-400 mr-2"></i>
-                            <span data-i18n="services.item3.feature1">Complete texture overhauls</span>
+                            <span data-i18n="services.item3.feature1">Custom item models</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-purple-400 mr-2"></i>
-                            <span data-i18n="services.item3.feature2">Custom 3D models</span>
+                            <span data-i18n="services.item3.feature2">Entity models with animations</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check-circle text-purple-400 mr-2"></i>
-                            <span data-i18n="services.item3.feature3">Character skin designs</span>
+                            <span data-i18n="services.item3.feature3">Optimized for Bedrock Edition</span>
                         </li>
                     </ul>
                     <a href="#contact" class="text-purple-400 hover:text-purple-300 font-bold transition" data-i18n="services.get_quote">Get a Quote</a>
@@ -356,13 +362,13 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item1.quote">
-                        "The adventure map created was beyond my expectations. The attention to detail and the engaging storyline kept my players hooked for weeks!"
+                        "A very dedicated person, he always focused on projects and when he didn't understand something, he sought to learn. This in addition to the constant evolution and improvement of his own skills."
                     </p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <img src="img/downpixel.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Alex Johnson</h4>
-                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item1.role">Server Owner</p>
+                            <h4 class="font-bold">DownPixel Studios</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item1.role">Developer marketplace Studio</p>
                         </div>
                     </div>
                 </div>
@@ -379,13 +385,13 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item2.quote">
-                        "The custom mob add-on brought our server to life. The unique behaviors and animations made our world feel truly magical and unique."
+                        "The skin pack was exactly what we wanted. The attention to detail and unique designs made our server stand out from the competition."
                     </p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <img src="img/client2.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Sarah Williams</h4>
-                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item2.role">Community Manager</p>
+                            <h4 class="font-bold">PixelCraft Network</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item2.role">Server Owner</p>
                         </div>
                     </div>
                 </div>
@@ -402,13 +408,13 @@
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6 italic" data-i18n="testimonials.item3.quote">
-                        "The texture pack perfectly captured the medieval fantasy aesthetic we wanted. The custom models for weapons and armor were particularly impressive."
+                        "The BlockBench models were perfectly optimized for Bedrock Edition and worked flawlessly in our add-on. Will definitely work with them again!"
                     </p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <img src="img/client3.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Michael Chen</h4>
-                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item3.role">Content Creator</p>
+                            <h4 class="font-bold">BlockWorks Team</h4>
+                            <p class="text-gray-400 text-sm" data-i18n="testimonials.item3.role">Add-on Developer</p>
                         </div>
                     </div>
                 </div>
@@ -421,7 +427,7 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-4" data-i18n="contact.title">Get In Touch</h2>
-                <p class="text-xl text-gray-300 text-center mb-12" data-i18n="contact.subtitle">Have a project in mind? Interested in a custom creation? Contact me!</p>
+                <p class="text-xl text-gray-300 text-center mb-12" data-i18n="contact.subtitle">Have a project in mind? Interested in custom add-ons or models? Contact me!</p>
                 
                 <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden">
                     <div class="md:flex">
@@ -434,7 +440,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold mb-1" data-i18n="contact.details.email">Email</h4>
-                                    <p class="text-gray-300">contact@bedrockdev.com</p>
+                                    <p class="text-gray-300">kawaeduardo22@gmail.com</p>
                                 </div>
                             </div>
                             
@@ -460,22 +466,22 @@
                             
                             <h3 class="text-xl font-bold mb-4 mt-8" data-i18n="contact.social.title">Follow Me</h3>
                             <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://github.com/KawEduh-dv" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-github"></i>
                                 </a>
                                 <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-discord"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://www.youtube.com/@KawEduh" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-youtube"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://mcpedl.com/user/kaweduh/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fas fa-cube"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://x.com/Kawedu_mdl" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <a href="https://www.instagram.com/kwe.photos/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
@@ -497,9 +503,9 @@
                                     <label for="subject" class="block text-gray-300 mb-2" data-i18n="contact.form.subject">Subject</label>
                                     <select id="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
                                         <option value="" data-i18n="contact.form.select_option">Select an option</option>
-                                        <option value="map" data-i18n="contact.form.option1">Custom Map Inquiry</option>
-                                        <option value="addon" data-i18n="contact.form.option2">Add-on Development</option>
-                                        <option value="texture" data-i18n="contact.form.option3">Texture Pack Request</option>
+                                        <option value="addon" data-i18n="contact.form.option1">Add-on Development</option>
+                                        <option value="skin" data-i18n="contact.form.option2">Skin Pack Request</option>
+                                        <option value="model" data-i18n="contact.form.option3">3D Model Commission</option>
                                         <option value="other" data-i18n="contact.form.option4">Other Inquiry</option>
                                     </select>
                                 </div>
@@ -526,16 +532,16 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <div class="flex items-center">
-                        <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-logo.svg" alt="Minecraft Logo" class="h-8 mr-2">
+                        <img src="img/minecraft_logo.png" alt="Minecraft Logo" class="h-8 mr-2">
                         <span class="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Bedrock Developer</span>
                     </div>
-                    <p class="text-gray-400 mt-2" data-i18n="footer.copyright">© 2023 Minecraft Bedrock Developer. All rights reserved.</p>
+                    <p class="text-gray-400 mt-2" data-i18n="footer.copyright">© 2025 Minecraft Bedrock Developer. All rights reserved.</p>
                 </div>
                 
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.privacy">Privacy Policy</a>
                     <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.terms">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition" data-i18n="footer.contact">Contact</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition" data-i18n="footer.contact">Contact</a>
                 </div>
             </div>
         </div>
@@ -556,54 +562,54 @@
                 "nav.about": "About",
                 "nav.services": "Services",
                 "nav.contact": "Contact",
-                "hero.title": "Professional <span class='text-green-400'>Minecraft Bedrock</span> Creations",
-                "hero.subtitle": "Custom maps, add-ons, skins, and texture packs for Minecraft Bedrock Edition",
+                "hero.title": "Expert <span class='text-green-400'>Minecraft Bedrock</span> Add-ons",
+                "hero.subtitle": "Custom add-ons, skin packs, and BlockBench models for Minecraft Bedrock Edition",
                 "hero.view_work": "View My Work",
                 "hero.contact": "Contact Me",
                 "portfolio.title": "My Marketplace Creations",
-                "portfolio.subtitle": "Check out some of my featured work available on Minecraft Marketplace",
-                "portfolio.item1.title": "Epic Adventure Map",
-                "portfolio.item1.description": "A complete story-driven adventure with custom structures, NPCs, and quests.",
-                "portfolio.item2.title": "Fantasy Texture Pack",
-                "portfolio.item2.description": "Complete visual overhaul with medieval fantasy themed textures and models.",
-                "portfolio.item3.title": "Magic System Add-on",
-                "portfolio.item3.description": "Introduces a complete magic system with spells, wands, and magical creatures.",
+                "portfolio.subtitle": "Check out some of my featured add-ons and skin packs available on Minecraft Marketplace",
+                "portfolio.item1.title": "CameraPlus ADD-ON",
+                "portfolio.item1.description": "Add-on made to help in recording scenes with dynamic cameras that follow mobs or scenes with keyframes!",
+                "portfolio.item2.title": "XP Die ADD-ON",
+                "portfolio.item2.description": "In this add-on you will have the very common vanilla game, but with a difference where if the player collects any XP he will die, will you be able to kill the ender dragon with this challenge? ",
+                "portfolio.item3.title": "'Secret Items' Catalogy",
+                "portfolio.item3.description": "Add to your inventory a catalog of 'secret' items by bringing them into your inventory easily!!",
                 "portfolio.view_details": "View Details",
                 "portfolio.view_all": "View All Creations",
                 "about.title": "About Me",
-                "about.description1": "I'm a passionate Minecraft Bedrock Edition developer with over 5 years of experience creating high-quality content for the Minecraft Marketplace. My expertise includes custom maps, behavior packs, resource packs, and skin packs.",
-                "about.description2": "I specialize in creating immersive experiences that push the boundaries of what's possible in Minecraft Bedrock Edition. My creations have been downloaded by thousands of players worldwide and featured in the official Minecraft Marketplace.",
-                "about.stats.maps": "Adventure Maps",
-                "about.stats.textures": "Texture Packs",
+                "about.description1": "I'm a specialized Minecraft Bedrock Edition developer with expertise in creating custom add-ons, skin packs, and 3D models using BlockBench. With over 5 years of experience, I've developed content that has been featured in the official Minecraft Marketplace.",
+                "about.description2": "My focus is on creating high-quality custom mobs, items, and skins that enhance the Minecraft experience. I'm proficient in behavior packs, resource packs, and creating optimized models that work perfectly in Minecraft Bedrock Edition.",
                 "about.stats.addons": "Add-ons",
+                "about.stats.skins": "Skin Packs",
+                "about.stats.models": "3D Models",
                 "services.title": "My Services",
                 "services.subtitle": "Custom development services for Minecraft Bedrock Edition",
-                "services.item1.title": "Custom Adventure Maps",
-                "services.item1.description": "Fully customized adventure maps with unique storylines, quests, NPCs, and custom structures.",
-                "services.item1.feature1": "Story-driven gameplay",
-                "services.item1.feature2": "Custom NPCs and dialogue",
-                "services.item1.feature3": "Unique structures and terrain",
-                "services.item2.title": "Behavior Packs & Add-ons",
-                "services.item2.description": "Custom mobs, items, blocks, and game mechanics to enhance your Minecraft experience.",
-                "services.item2.feature1": "Custom mobs with unique AI",
-                "services.item2.feature2": "New items and crafting systems",
-                "services.item2.feature3": "Game mechanic modifications",
-                "services.item3.title": "Resource Packs & Skins",
-                "services.item3.description": "Custom textures, models, and skins to completely transform the look of your Minecraft world.",
-                "services.item3.feature1": "Complete texture overhauls",
-                "services.item3.feature2": "Custom 3D models",
-                "services.item3.feature3": "Character skin designs",
+                "services.item1.title": "Custom Add-ons",
+                "services.item1.description": "Custom mobs, items, and game mechanics to enhance your Minecraft experience.",
+                "services.item1.feature1": "Custom mobs with unique AI",
+                "services.item1.feature2": "New items and crafting systems",
+                "services.item1.feature3": "Game mechanic modifications",
+                "services.item2.title": "Skin Packs",
+                "services.item2.description": "High-quality custom skins for players, mobs, and entities.",
+                "services.item2.feature1": "Player skins in any theme",
+                "services.item2.feature2": "Custom mob skins",
+                "services.item2.feature3": "HD skins with unique designs",
+                "services.item3.title": "BlockBench Models",
+                "services.item3.description": "Custom 3D models for items, blocks, and entities optimized for Minecraft.",
+                "services.item3.feature1": "Custom item models",
+                "services.item3.feature2": "Entity models with animations",
+                "services.item3.feature3": "Optimized for Bedrock Edition",
                 "services.get_quote": "Get a Quote",
                 "testimonials.title": "What Clients Say",
                 "testimonials.subtitle": "Feedback from satisfied customers and collaborators",
-                "testimonials.item1.quote": "\"The adventure map created was beyond my expectations. The attention to detail and the engaging storyline kept my players hooked for weeks!\"",
-                "testimonials.item1.role": "Server Owner",
-                "testimonials.item2.quote": "\"The custom mob add-on brought our server to life. The unique behaviors and animations made our world feel truly magical and unique.\"",
-                "testimonials.item2.role": "Community Manager",
-                "testimonials.item3.quote": "\"The texture pack perfectly captured the medieval fantasy aesthetic we wanted. The custom models for weapons and armor were particularly impressive.\"",
-                "testimonials.item3.role": "Content Creator",
+                "testimonials.item1.quote": "\"A very dedicated person, he always focused on projects and when he didn't understand something, he sought to learn. This in addition to the constant evolution and improvement of his own skills.\"",
+                "testimonials.item1.role": "Developer marketplace Studio",
+                "testimonials.item2.quote": "\"The skin pack was exactly what we wanted. The attention to detail and unique designs made our server stand out from the competition.\"",
+                "testimonials.item2.role": "Server Owner",
+                "testimonials.item3.quote": "\"The BlockBench models were perfectly optimized for Bedrock Edition and worked flawlessly in our add-on. Will definitely work with them again!\"",
+                "testimonials.item3.role": "Add-on Developer",
                 "contact.title": "Get In Touch",
-                "contact.subtitle": "Have a project in mind? Interested in a custom creation? Contact me!",
+                "contact.subtitle": "Have a project in mind? Interested in custom add-ons or models? Contact me!",
                 "contact.details.title": "Contact Information",
                 "contact.details.email": "Email",
                 "contact.details.location": "Location",
@@ -614,13 +620,13 @@
                 "contact.form.email": "Email Address",
                 "contact.form.subject": "Subject",
                 "contact.form.select_option": "Select an option",
-                "contact.form.option1": "Custom Map Inquiry",
-                "contact.form.option2": "Add-on Development",
-                "contact.form.option3": "Texture Pack Request",
+                "contact.form.option1": "Add-on Development",
+                "contact.form.option2": "Skin Pack Request",
+                "contact.form.option3": "3D Model Commission",
                 "contact.form.option4": "Other Inquiry",
                 "contact.form.message": "Your Message",
                 "contact.form.submit": "Send Message",
-                "footer.copyright": "© 2023 Minecraft Bedrock Developer. All rights reserved.",
+                "footer.copyright": "© 2025 Minecraft Bedrock Developer. All rights reserved.",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Service",
                 "footer.contact": "Contact"
@@ -631,54 +637,54 @@
                 "nav.about": "Sobre",
                 "nav.services": "Serviços",
                 "nav.contact": "Contato",
-                "hero.title": "Criações Profissionais para <span class='text-green-400'>Minecraft Bedrock</span>",
-                "hero.subtitle": "Mapas personalizados, add-ons, skins e pacotes de textura para Minecraft Bedrock Edition",
+                "hero.title": "Add-ons Profissionais para <span class='text-green-400'>Minecraft Bedrock</span>",
+                "hero.subtitle": "Add-ons personalizados, pacotes de skins e modelos no BlockBench para Minecraft Bedrock Edition",
                 "hero.view_work": "Ver Meus Trabalhos",
                 "hero.contact": "Entre em Contato",
                 "portfolio.title": "Minhas Criações no Marketplace",
-                "portfolio.subtitle": "Confira alguns dos meus trabalhos em destaque disponíveis no Minecraft Marketplace",
-                "portfolio.item1.title": "Mapa de Aventura Épico",
-                "portfolio.item1.description": "Uma aventura completa com história personalizada, estruturas, NPCs e missões.",
-                "portfolio.item2.title": "Pacote de Textura Fantasia",
-                "portfolio.item2.description": "Reformulação visual completa com texturas e modelos no tema de fantasia medieval.",
-                "portfolio.item3.title": "Add-on de Sistema Mágico",
-                "portfolio.item3.description": "Introduz um sistema mágico completo com feitiços, varinhas e criaturas mágicas.",
+                "portfolio.subtitle": "Confira alguns dos meus add-ons e pacotes de skins em destaque disponíveis no Minecraft Marketplace",
+                "portfolio.item1.title": "Melhor Camera ADD-ON",
+                "portfolio.item1.description": "Add-on feito para auxiliar na gravação de cena com cameras dinamicas que seguem mobs ou cenas com keyframes!",
+                "portfolio.item2.title": "Morte Com XP ADD-ON",
+                "portfolio.item2.description": "Neste addon você terá o jogo vanilla bem comum, mas com uma diferença onde se o jogador coletar XP ele morrerá, você conseguirá matar o dragão ender com esse desafio?",
+                "portfolio.item3.title": "catalogo de 'Itens Secretos'",
+                "portfolio.item3.description": "Adicione ao seu inventário um catálogo de 'itens secretos' trazendo-os para seu inventário de maneira fácil!!",
                 "portfolio.view_details": "Ver Detalhes",
                 "portfolio.view_all": "Ver Todas as Criações",
                 "about.title": "Sobre Mim",
-                "about.description1": "Sou um desenvolvedor apaixonado por Minecraft Bedrock Edition com mais de 5 anos de experiência criando conteúdo de alta qualidade para o Minecraft Marketplace. Minha expertise inclui mapas personalizados, behavior packs, resource packs e skin packs.",
-                "about.description2": "Especializo-me na criação de experiências imersivas que expandem os limites do que é possível no Minecraft Bedrock Edition. Minhas criações foram baixadas por milhares de jogadores em todo o mundo e destacadas no Minecraft Marketplace oficial.",
-                "about.stats.maps": "Mapas de Aventura",
-                "about.stats.textures": "Pacotes de Textura",
+                "about.description1": "Sou um desenvolvedor especializado em Minecraft Bedrock Edition com expertise em criar add-ons personalizados, pacotes de skins e modelos 3D usando BlockBench. Com mais de 5 anos de experiência, desenvolvi conteúdo que foi destaque no Minecraft Marketplace oficial.",
+                "about.description2": "Meu foco é criar mobs, itens e skins personalizados de alta qualidade que aprimorem a experiência no Minecraft. Sou proficiente em behavior packs, resource packs e na criação de modelos otimizados que funcionam perfeitamente no Minecraft Bedrock Edition.",
                 "about.stats.addons": "Add-ons",
+                "about.stats.skins": "Pacotes de Skins",
+                "about.stats.models": "Modelos 3D",
                 "services.title": "Meus Serviços",
                 "services.subtitle": "Serviços de desenvolvimento personalizado para Minecraft Bedrock Edition",
-                "services.item1.title": "Mapas de Aventura Personalizados",
-                "services.item1.description": "Mapas de aventura totalmente personalizados com histórias únicas, missões, NPCs e estruturas personalizadas.",
-                "services.item1.feature1": "Jogabilidade com narrativa",
-                "services.item1.feature2": "NPCs e diálogos personalizados",
-                "services.item1.feature3": "Estruturas e terrenos únicos",
-                "services.item2.title": "Behavior Packs & Add-ons",
-                "services.item2.description": "Mobs, itens, blocos e mecânicas de jogo personalizados para aprimorar sua experiência no Minecraft.",
-                "services.item2.feature1": "Mobs personalizados com IA única",
-                "services.item2.feature2": "Novos itens e sistemas de crafting",
-                "services.item2.feature3": "Modificações em mecânicas de jogo",
-                "services.item3.title": "Resource Packs & Skins",
-                "services.item3.description": "Texturas, modelos e skins personalizados para transformar completamente a aparência do seu mundo Minecraft.",
-                "services.item3.feature1": "Reformulação completa de texturas",
-                "services.item3.feature2": "Modelos 3D personalizados",
-                "services.item3.feature3": "Designs de skins para personagens",
+                "services.item1.title": "Add-ons Personalizados",
+                "services.item1.description": "Mobs, itens e mecânicas de jogo personalizados para aprimorar sua experiência no Minecraft.",
+                "services.item1.feature1": "Mobs personalizados com IA única",
+                "services.item1.feature2": "Novos itens e sistemas de crafting",
+                "services.item1.feature3": "Modificações em mecânicas de jogo",
+                "services.item2.title": "Pacotes de Skins",
+                "services.item2.description": "Skins personalizadas de alta qualidade para jogadores, mobs e entidades.",
+                "services.item2.feature1": "Skins de jogador em qualquer tema",
+                "services.item2.feature2": "Skins personalizadas para mobs",
+                "services.item2.feature3": "Skins HD com designs únicos",
+                "services.item3.title": "Modelos no BlockBench",
+                "services.item3.description": "Modelos 3D personalizados para itens, blocos e entidades otimizados para Minecraft.",
+                "services.item3.feature1": "Modelos de itens personalizados",
+                "services.item3.feature2": "Modelos de entidades com animações",
+                "services.item3.feature3": "Otimizados para Bedrock Edition",
                 "services.get_quote": "Solicitar Orçamento",
                 "testimonials.title": "O Que os Clientes Dizem",
                 "testimonials.subtitle": "Feedback de clientes e colaboradores satisfeitos",
-                "testimonials.item1.quote": "\"O mapa de aventura criado superou minhas expectativas. A atenção aos detalhes e a história cativante mantiveram meus jogadores engajados por semanas!\"",
-                "testimonials.item1.role": "Dono de Servidor",
-                "testimonials.item2.quote": "\"O add-on de mobs personalizados trouxe vida ao nosso servidor. Os comportamentos e animações únicos fizeram nosso mundo parecer verdadeiramente mágico e especial.\"",
-                "testimonials.item2.role": "Gerente de Comunidade",
-                "testimonials.item3.quote": "\"O pacote de textura capturou perfeitamente a estética de fantasia medieval que queríamos. Os modelos personalizados para armas e armaduras foram particularmente impressionantes.\"",
-                "testimonials.item3.role": "Criador de Conteúdo",
+                "testimonials.item1.quote": "\"Pessoa muito dedicada, sempre focou bem nos projetos e quando não entendia sobre algo, buscava aprender. Isso além da constante evolução e aprimoramento de suas próprias habilidades.\"",
+                "testimonials.item1.role": "Estúdio de desenvolvedores para o Marketplace",
+                "testimonials.item2.quote": "\"O pacote de skins foi exatamente o que queríamos. A atenção aos detalhes e os designs únicos fizeram nosso servidor se destacar da concorrência.\"",
+                "testimonials.item2.role": "Dono de Servidor",
+                "testimonials.item3.quote": "\"Os modelos no BlockBench foram perfeitamente otimizados para Bedrock Edition e funcionaram perfeitamente em nosso add-on. Com certeza trabalharemos com eles novamente!\"",
+                "testimonials.item3.role": "Desenvolvedor de Add-ons",
                 "contact.title": "Entre em Contato",
-                "contact.subtitle": "Tem um projeto em mente? Interessado em uma criação personalizada? Fale comigo!",
+                "contact.subtitle": "Tem um projeto em mente? Interessado em add-ons ou modelos personalizados? Fale comigo!",
                 "contact.details.title": "Informações de Contato",
                 "contact.details.email": "E-mail",
                 "contact.details.location": "Localização",
@@ -689,13 +695,13 @@
                 "contact.form.email": "Endereço de E-mail",
                 "contact.form.subject": "Assunto",
                 "contact.form.select_option": "Selecione uma opção",
-                "contact.form.option1": "Consulta sobre Mapa Personalizado",
-                "contact.form.option2": "Desenvolvimento de Add-on",
-                "contact.form.option3": "Solicitação de Pacote de Textura",
+                "contact.form.option1": "Desenvolvimento de Add-on",
+                "contact.form.option2": "Solicitação de Pacote de Skins",
+                "contact.form.option3": "Encomenda de Modelo 3D",
                 "contact.form.option4": "Outra Consulta",
                 "contact.form.message": "Sua Mensagem",
                 "contact.form.submit": "Enviar Mensagem",
-                "footer.copyright": "© 2023 Desenvolvedor Minecraft Bedrock. Todos os direitos reservados.",
+                "footer.copyright": "© 2025 Desenvolvedor Minecraft Bedrock. Todos os direitos reservados.",
                 "footer.privacy": "Política de Privacidade",
                 "footer.terms": "Termos de Serviço",
                 "footer.contact": "Contato"
